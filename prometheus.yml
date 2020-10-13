@@ -7,6 +7,8 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090'] ## IP Address of the localhost
   - job_name: 'ec2_aws_node_exporter_discovery'
+     static_configs:
+    - targets: ['localhost:9100'] ## IP Address of the localhost
     ec2_sd_configs:
       - port: 9100 # referred to nodeExporter exposed port
         region: us-west-2
@@ -16,6 +18,8 @@ scrape_configs:
           #values:
           #- EC2ContainerService-sling-analytics-DEV-cluster-EcsInstanceAsg-1QHPAQFTDOQU3
   - job_name: ecs_CAdvisor
+    static_configs:
+    - targets: ['localhost:9200'] ## IP Address of the localhost
     ec2_sd_configs:
       - port: 9200 # referred to cAdvisor exposed por
         region: us-west-2
